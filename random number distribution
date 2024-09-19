@@ -1,0 +1,4 @@
+random_numbers <- rnorm(100)
+rounded_numbers <- round(random_numbers, 1)
+occurrences <- table(rounded_numbers)
+print(occurrences)
