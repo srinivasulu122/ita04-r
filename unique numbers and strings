@@ -1,0 +1,13 @@
+Q1.Unique numbers and strings?
+string <- "hellow world"
+unique_chars <- unique(strsplit(string, NULL)[[1]])
+cat("The unique characters are: ", unique_chars, "\n")
+vector <- c(1, 3, 4, 2, 3, 4, 1, 5, 3, 6, 7, 3)
+unique_num <- unique(vector)
+cat("The unique numbers are: ", unique_num, "\n")
+
+
+o/p
+Unique characters in the string:  h e l o   w r d 
+Unique numbers in the vector:  1 2 3 4 5 
+
