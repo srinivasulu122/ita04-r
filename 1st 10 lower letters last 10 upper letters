@@ -1,0 +1,8 @@
+# Extract letters
+first_10 <- letters[1:10]
+last_10_upper <- toupper(letters[17:26])
+letters_22_to_24 <- toupper(letters[22:24])
+
+cat("First 10 letters (lower case):", first_10, "\n")
+cat("Last 10 letters (upper case):", last_10_upper, "\n")
+cat("22nd to 24th letters (upper case):", letters_22_to_24, "\n")
