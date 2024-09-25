@@ -1,0 +1,17 @@
+data("ChickWeight")
+
+ordered_data <- ChickWeight[order(ChickWeight$weight, ChickWeight$diet), ]
+last_six_records <- tail(ordered_data, 6)
+
+melted_chick <- melt(ChickWeight, id.vars = c("Chick", "Time", "Diet"))
+
+mean_weight_by_diet <- dcast(melted_chick, Diet ~ variable, mean)
+
+mode_weight_by_diet <- dcast(melted_chick, Diet ~ variable, function(x) as.numeric(names(sort(table(x), decreasing=TRUE)[1])))
+
+cat("Last six records ordered by weight and diet:\n")
+print(last_six_records)
+cat("\nMean weight by Diet:\n")
+print(mean_weight_by_diet)
+cat("\nMode weight by Diet:\n")
+print(mode_weight_by_diet)
