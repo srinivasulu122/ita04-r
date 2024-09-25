@@ -1,0 +1,25 @@
+exam_data <- data.frame(
+  name = c('John', 'Jane', 'Alex'),
+  score = c(8.5, 7, 9.5),
+  attempts = c(2, 1, 3),
+  qualify = c('yes', 'no', 'yes')
+)
+
+new_exam_data <- data.frame(
+  name = c('Robert', 'Sophia'),
+  score = c(10.5, 9),
+  attempts = c(1, 3),
+  qualify = c('yes', 'no')
+)
+exam_data <- rbind(exam_data, new_exam_data)
+print("After adding new rows:")
+print(exam_data)
+
+sorted_exam_data <- exam_data[order(exam_data$name, exam_data$score), ]
+print("Sorted Data Frame by name and score:")
+print(sorted_exam_data)
+
+write.csv(sorted_exam_data, "sorted_exam_data.csv", row.names = FALSE)
+read_exam_data <- read.csv("sorted_exam_data.csv")
+print("Data Frame read from file:")
+print(read_exam_data)
