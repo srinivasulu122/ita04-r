@@ -1,0 +1,7 @@
+factors <- function(n) {
+  return(which(n %% 1:n == 0))
+}
+
+# Get factors of 36
+factors_36 <- factors(36)
+cat("Factors of 36:", factors_36, "\n")
