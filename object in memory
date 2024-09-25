@@ -1,0 +1,2 @@
+objects_in_memory <- ls()
+cat("Objects in memory:", objects_in_memory, "\n")
