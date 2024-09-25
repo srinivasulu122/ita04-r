@@ -1,0 +1,8 @@
+vec <- c(1, 2, 3)
+mat <- matrix(1:4, nrow = 2)
+sum_func <- function(x, y) x + y
+
+# Creating a list
+my_list <- list(vector = vec, matrix = mat, sum_function = sum_func)
+cat("Content of the list:\n")
+print(my_list)
