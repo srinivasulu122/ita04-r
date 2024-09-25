@@ -1,0 +1,7 @@
+vec <- c(1:24)
+
+# Create an array with 4 columns, 3 rows, and 2 tables
+my_array <- array(vec, dim = c(3, 4, 2))
+
+# Print the content of the array
+print(my_array)
