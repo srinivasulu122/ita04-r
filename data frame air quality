@@ -1,0 +1,11 @@
+data("airquality")
+
+print(is.data.frame(airquality))
+
+ordered_airquality <- airquality[order(airquality[,1], airquality[,2]), ]
+print("Ordered data frame by first and second columns:")
+print(head(ordered_airquality))
+
+modified_airquality <- subset(ordered_airquality, select = -c(Solar.R, Wind))
+print("Modified data frame without 'Solar.R' and 'Wind':")
+print(head(modified_airquality))
