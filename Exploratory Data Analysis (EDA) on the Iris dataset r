@@ -1,0 +1,30 @@
+data("iris")
+
+print(dim(iris))
+print(str(iris))
+print(summary(iris))
+print("Standard deviation of features:")
+sapply(iris[, 1:4], sd)
+
+mean_sd_species <- aggregate(. ~ Species, data = iris, function(x) c(mean = mean(x), sd = sd(x)))
+print("Mean and standard deviation grouped by species:")
+print(mean_sd_species)
+
+print("Quantile of Sepal.Length:")
+print(quantile(iris$Sepal.Length))
+print("Quantile of Sepal.Width:")
+print(quantile(iris$Sepal.Width))
+
+iris$Sepal.Length.Cate <- cut(iris$Sepal.Length, quantile(iris$Sepal.Length))
+iris1 <- iris
+print("Data frame with Sepal.Length.Cate:")
+print(head(iris1))
+
+print("Average by Species and Sepal.Length.Cate:")
+avg_by_group <- aggregate(. ~ Species + Sepal.Length.Cate, data = iris1, mean)
+print(avg_by_group)
+
+library(reshape2)
+pivot_table <- dcast(iris1, Species ~ Sepal.Length.Cate, value.var = "Sepal.Length", fun.aggregate = mean)
+print("Pivot table by Species and Sepal.Length.Cate:")
+print(pivot_table)
