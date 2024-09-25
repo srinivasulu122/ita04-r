@@ -1,0 +1,12 @@
+fibonacci <- function(n) {
+  fib <- numeric(n)
+  fib[1] <- fib[2] <- 1
+  for (i in 3:n) {
+    fib[i] <- fib[i-1] + fib[i-2]
+  }
+  return(fib)
+}
+
+# Get first 10 Fibonacci numbers
+fibonacci_numbers <- fibonacci(10)
+cat("First 10 Fibonacci numbers:", fibonacci_numbers, "\n")
