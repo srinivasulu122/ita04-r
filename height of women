@@ -1,0 +1,6 @@
+data("women")
+
+# Create a factor for heights
+height_factor <- factor(women$height)
+print("Height factor levels:")
+print(height_factor)
