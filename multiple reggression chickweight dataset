@@ -1,0 +1,15 @@
+library(dplyr)
+data(ChickWeight)
+
+set.seed(123)
+
+model <- lm(weight ~ Time + Diet, data = ChickWeight)
+summary(model)
+
+new_data <- data.frame(Time = 10, Diet = 1)
+predicted_weight <- predict(model, new_data)
+print(paste("Predicted Weight for Time=10 and Diet=1:", round(predicted_weight, 2)))
+
+actual_weight <- ChickWeight$weight[ChickWeight$Time == 10 & ChickWeight$Diet == 1]
+error <- actual_weight - predicted_weight
+print(paste("Error in Prediction:", round(error, 2)))
