@@ -1,0 +1,6 @@
+plot.new()
+title("Empty Plot")
+
+# Empty plot with axis limits
+plot(1, type = "n", xlim = c(0, 10), ylim = c(0, 10))
+title("Empty Plot with Axis Limits")
