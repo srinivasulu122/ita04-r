@@ -1,0 +1,9 @@
+random_sample <- sample(LETTERS, 10, replace = TRUE)
+
+random_factor <- factor(random_sample)
+print("Random factor levels:")
+print(random_factor)
+
+levels_extracted <- levels(random_factor)[1:5]
+print("First five levels extracted:")
+print(levels_extracted)
