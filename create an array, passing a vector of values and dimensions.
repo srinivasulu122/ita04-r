@@ -1,0 +1,7 @@
+values <- 1:12
+array_dimensions <- c(3, 2, 2)  # 3x2x2 array
+array_names <- list(c("A", "B", "C"), c("X", "Y"), c("Layer1", "Layer2"))
+
+named_array <- array(values, dim = array_dimensions, dimnames = array_names)
+cat("Array with named dimensions:\n")
+print(named_array)
