@@ -1,0 +1,17 @@
+library(ggplot2)
+data(Titanic)
+
+titanic_data <- as.data.frame(Titanic)
+
+ggplot(titanic_data, aes(x = Class, fill = factor(Survived))) +
+  geom_bar(position = "dodge") +
+  labs(title = "Survival on Titanic by Class", x = "Class", fill = "Survived")
+
+ggplot(titanic_data, aes(x = Class, fill = factor(Survived))) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ Sex) +
+  labs(title = "Survival on Titanic by Class and Gender", x = "Class", fill = "Survived")
+
+ggplot(titanic_data, aes(x = Age)) +
+  geom_histogram(binwidth = 5, fill = "lightblue", color = "black") +
+  labs(title = "Distribution of Age on Titanic", x = "Age", y = "Count")
