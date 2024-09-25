@@ -1,0 +1,5 @@
+even_integers <- seq(52, 80, by=2)
+
+my_array <- array(even_integers, dim = c(5, 3))
+
+print(my_array)
