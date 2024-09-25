@@ -1,0 +1,32 @@
+library(dplyr)
+
+data(iris)
+
+set.seed(123)  
+train_indices <- sample(1:nrow(iris), size = 0.8 * nrow(iris))
+train_data <- iris[train_indices, ]
+test_data <- iris[-train_indices, ]
+
+model <- glm(Species ~ Petal.Width + Petal.Length, data = train_data, family = binomial)
+
+predicted_probabilities <- predict(model, newdata = test_data, type = "response")
+
+predicted_classes <- ifelse(predicted_probabilities > 0.5, "versicolor", "setosa")
+
+confusion_matrix <- table(predicted = predicted_classes, actual = test_data$Species)
+print("Confusion Matrix:")
+print(confusion_matrix)
+c_values <- c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20)
+
+mean_value <- mean(c_values)
+median_value <- median(c_values)
+mode_value <- as.numeric(names(sort(table(c_values), decreasing = TRUE)[1]))
+
+second_highest <- sort(unique(c_values), decreasing = TRUE)[2]
+third_lowest <- sort(unique(c_values))[3]
+
+cat("Mean:", mean_value, "\n")
+cat("Median:", median_value, "\n")
+cat("Mode:", mode_value, "\n")
+cat("Second Highest:", second_highest, "\n")
+cat("Third Lowest:", third_lowest, "\n")
