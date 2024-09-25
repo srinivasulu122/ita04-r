@@ -1,0 +1,9 @@
+# Creating vectors
+numeric_data <- c(1.1, 2.2, 3.3)
+character_data <- c("A", "B", "C")
+logical_data <- c(TRUE, FALSE, TRUE)
+
+# Display content and type of the vectors
+cat("Numeric vector:\n", numeric_data, "\nType:", typeof(numeric_data), "\n")
+cat("Character vector:\n", character_data, "\nType:", typeof(character_data), "\n")
+cat("Logical vector:\n", logical_data, "\nType:", typeof(logical_data), "\n")
