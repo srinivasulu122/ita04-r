@@ -1,0 +1,12 @@
+na_count <- sum(is.na(airquality))
+if (na_count < 0.1 * nrow(airquality)) {
+  airquality <- na.omit(airquality)
+} else {
+  airquality[is.na(airquality)] <- lapply(airquality[is.na(airquality)], function(x) mean(x, na.rm = TRUE))
+}
+
+linear_model <- lm(Ozone ~ Solar.R, data = airquality)
+
+plot(airquality$Solar.R, airquality$Ozone, main = "Scatter plot of Ozone vs Solar.R",
+     xlab = "Solar Radiation", ylab = "Ozone", pch = 19)
+abline(linear_model, col = "red")
