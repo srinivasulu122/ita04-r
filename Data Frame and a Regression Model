@@ -1,0 +1,13 @@
+# Create a data frame
+sales_data <- data.frame(
+  Spends = c(1500, 2000, 2500, 3000, 4000, 5000, 6000, 8000, 9000, 12000),
+  Sales = c(3000, 3500, 4000, 4200, 5000, 5500, 6000, 6500, 7000, 8000)
+)
+
+model <- lm(Sales ~ Spends, data = sales_data)
+
+cat("Regression Model Summary:\n")
+summary(model)
+
+predicted_sales <- predict(model, newdata = data.frame(Spends = 13500))
+cat("Predicted Sales for Spend = 13500:", predicted_sales, "\n")
