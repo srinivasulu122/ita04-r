@@ -1,0 +1,8 @@
+df <- data.frame(
+  name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  score = c(85, 95, 80, 90, 90)
+)
+
+sorted_df <- df[order(df$name, df$score), ]
+
+print(sorted_df)
