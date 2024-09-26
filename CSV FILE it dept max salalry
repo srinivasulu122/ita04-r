@@ -1,0 +1,25 @@
+# Reading the CSV file
+data <- read.csv("input.csv", header = TRUE)
+
+# View the data
+print(data)
+
+# a. Get the maximum salary
+max_salary <- max(data$Salary)
+cat("Maximum Salary:", max_salary, "\n")
+
+# b. Get the details of the person with max salary
+person_with_max_salary <- data[data$Salary == max_salary, ]
+print(person_with_max_salary)
+
+# c. Get all the people working in IT department
+it_department <- data[data$Department == "IT", ]
+print(it_department)
+
+# d. Get the persons in IT department whose salary is greater than 600
+it_high_salary <- data[data$Department == "IT" & data$Salary > 600, ]
+print(it_high_salary)
+
+# e. Get the people who joined on or after 2014
+joined_after_2014 <- data[as.Date(data$JoinDate, format = "%Y") >= as.Date("2014-01-01"), ]
+print(joined_after_2014)
