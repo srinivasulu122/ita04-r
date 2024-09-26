@@ -1,0 +1,40 @@
+data("USArrests")
+library(ggplot2)
+
+summary(USArrests)
+str(USArrests)
+nrow(USArrests)
+
+state_with_max_rape <- rownames(USArrests)[which.max(USArrests$Rape)]
+cat("State with the largest number of rape arrests:", state_with_max_rape, "\n")
+
+state_max_murder <- rownames(USArrests)[which.max(USArrests$Murder)]
+state_min_murder <- rownames(USArrests)[which.min(USArrests$Murder)]
+cat("State with the max murder rate:", state_max_murder, "\n")
+cat("State with the min murder rate:", state_min_murder, "\n")
+
+correlation_matrix <- cor(USArrests)
+print(correlation_matrix)
+
+assault_median <- median(USArrests$Assault)
+states_above_median_assault <- rownames(USArrests)[USArrests$Assault > assault_median]
+cat("States with assault arrests more than the median:\n", paste(states_above_median_assault, collapse = ", "), "\n")
+
+murder_25th_percentile <- quantile(USArrests$Murder, 0.25)
+states_bottom_25_murder <- rownames(USArrests)[USArrests$Murder < murder_25th_percentile]
+cat("States in the bottom 25% for murder arrests:\n", paste(states_bottom_25_murder, collapse = ", "), "\n")
+
+hist(USArrests$Murder, main = "Histogram of Murder Arrests", xlab = "Murder Arrests", col = "lightblue", breaks = 10)
+
+plot(density(USArrests$Murder), main = "Density Plot of Murder Arrests", xlab = "Murder Arrests", col = "red")
+
+ggplot(USArrests, aes(x = UrbanPop, y = Murder)) +
+  geom_point(aes(color = Assault)) +
+  scale_color_gradient(low = "blue", high = "red") +
+  labs(title = "Murder Arrest Rate vs Proportion Urbanized by State", 
+       x = "Urban Population (%)", 
+       y = "Murder Arrest Rate") +
+  theme_minimal()
+
+barplot(USArrests$Murder, names.arg = rownames(USArrests), las = 2,
+        col = "skyblue", main = "Murder Rate by State", xlab = "States", ylab = "Murder Rate")
